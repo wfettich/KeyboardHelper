@@ -8,13 +8,47 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    let keyboardHelper = KeyboardHelper()
 
-    override func viewDidLoad() {
+    @IBOutlet weak var content: UIView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        addKeyboardHandler()
     }
-
-
+    
+    func addKeyboardHandler()
+    {
+        keyboardHelper.contentView = content        
+                
+        keyboardHelper.registerForKeyboardNotifications()
+        
+        keyboardHelper.onKeyboardWillBeShown =
+        {
+            keyboardRect in
+            
+        }
+        
+        keyboardHelper.onKeyboardWillBeResized =
+        {
+            keyboardRect in
+            
+        }
+        
+        keyboardHelper.onKeyboardWillBeHidden =
+        {
+            keyboardRect in
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+    }
 }
 

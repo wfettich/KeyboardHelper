@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,114 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KeyboardDeno" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uac-sM-q6s">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeT-Ub-aiP">
+                                        <rect key="frame" x="54" y="49" width="97" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="vNW-KE-21P"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPT-h3-RMw">
+                                        <rect key="frame" x="54" y="472" width="58" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="caE-jB-tlO"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-j1-EOg">
+                                        <rect key="frame" x="54" y="388" width="97" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Izf-Pg-cZi"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qh-lm-g19">
+                                        <rect key="frame" x="54" y="565" width="97" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="IUZ-PN-ZBY"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="liQ-4U-Mp3">
+                                        <rect key="frame" x="54" y="304" width="121" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="JrI-9g-nQI"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWd-V7-Zsj">
+                                        <rect key="frame" x="54" y="180" width="97" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ENk-dE-C1Z"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6a-Z9-Eb1">
+                                        <rect key="frame" x="54" y="637" width="97" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="dnE-vr-2O0"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WPT-h3-RMw" firstAttribute="top" secondItem="rN3-j1-EOg" secondAttribute="bottom" constant="50" id="1aI-4u-gdy"/>
+                                    <constraint firstAttribute="trailing" secondItem="rN3-j1-EOg" secondAttribute="trailing" constant="224" id="1o0-gr-KWO"/>
+                                    <constraint firstItem="DeT-Ub-aiP" firstAttribute="top" secondItem="uac-sM-q6s" secondAttribute="top" constant="49" id="6Yg-fF-ota"/>
+                                    <constraint firstItem="d6a-Z9-Eb1" firstAttribute="top" secondItem="0Qh-lm-g19" secondAttribute="bottom" constant="38" id="6cl-fW-knb"/>
+                                    <constraint firstAttribute="trailing" secondItem="liQ-4U-Mp3" secondAttribute="trailing" constant="200" id="Ecn-4m-zR9"/>
+                                    <constraint firstItem="DeT-Ub-aiP" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="Fym-oE-EUC"/>
+                                    <constraint firstItem="OWd-V7-Zsj" firstAttribute="top" secondItem="DeT-Ub-aiP" secondAttribute="bottom" constant="97" id="GP6-ek-1FI"/>
+                                    <constraint firstItem="OWd-V7-Zsj" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="H4c-aE-O6i"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d6a-Z9-Eb1" secondAttribute="bottom" constant="63" id="Hcv-ix-rEC"/>
+                                    <constraint firstItem="d6a-Z9-Eb1" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="JRF-ha-lWw"/>
+                                    <constraint firstAttribute="trailing" secondItem="d6a-Z9-Eb1" secondAttribute="trailing" constant="224" id="KyV-Ur-VXU"/>
+                                    <constraint firstItem="WPT-h3-RMw" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="NUg-C4-CQv"/>
+                                    <constraint firstAttribute="trailing" secondItem="OWd-V7-Zsj" secondAttribute="trailing" constant="224" id="Pgm-cZ-o9D"/>
+                                    <constraint firstItem="0Qh-lm-g19" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="Pl4-Wg-OoC"/>
+                                    <constraint firstAttribute="trailing" secondItem="DeT-Ub-aiP" secondAttribute="trailing" constant="224" id="RPf-Nd-zKn"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Qh-lm-g19" secondAttribute="trailing" constant="224" id="SzH-qC-WG7"/>
+                                    <constraint firstItem="rN3-j1-EOg" firstAttribute="top" secondItem="liQ-4U-Mp3" secondAttribute="bottom" constant="50" id="TSv-Gb-Pm8"/>
+                                    <constraint firstItem="liQ-4U-Mp3" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="ddE-q1-pGK"/>
+                                    <constraint firstItem="rN3-j1-EOg" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="fMe-gt-XbK"/>
+                                    <constraint firstItem="0Qh-lm-g19" firstAttribute="top" secondItem="WPT-h3-RMw" secondAttribute="bottom" constant="59" id="lFU-gM-57g"/>
+                                    <constraint firstAttribute="trailing" secondItem="WPT-h3-RMw" secondAttribute="trailing" constant="263" id="sIJ-JV-EKY"/>
+                                    <constraint firstItem="liQ-4U-Mp3" firstAttribute="top" secondItem="OWd-V7-Zsj" secondAttribute="bottom" constant="90" id="zrV-i7-EDZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uac-sM-q6s" secondAttribute="bottom" id="1rY-gZ-J9E"/>
+                            <constraint firstItem="uac-sM-q6s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ef1-we-XR1"/>
+                            <constraint firstItem="uac-sM-q6s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aRF-Ud-6dR"/>
+                            <constraint firstItem="uac-sM-q6s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xkZ-mI-2Wk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="content" destination="uac-sM-q6s" id="PTv-dA-F4R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
