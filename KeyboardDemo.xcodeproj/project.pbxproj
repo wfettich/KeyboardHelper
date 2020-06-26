@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B67F1EFB24A22E2D006FCE51 /* KeyboardDeno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardDeno.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B67F1EFB24A22E2D006FCE51 /* KeyboardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67F1EFE24A22E2D006FCE51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B67F1F0024A22E2D006FCE51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B67F1F0224A22E2D006FCE51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				B67F1F1224A23386006FCE51 /* KeyboardHelper */,
-				B67F1EFD24A22E2D006FCE51 /* KeyboardDeno */,
+				B67F1EFD24A22E2D006FCE51 /* KeyboardDemo */,
 				B67F1EFC24A22E2D006FCE51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,12 +51,12 @@
 		B67F1EFC24A22E2D006FCE51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B67F1EFB24A22E2D006FCE51 /* KeyboardDeno.app */,
+				B67F1EFB24A22E2D006FCE51 /* KeyboardDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B67F1EFD24A22E2D006FCE51 /* KeyboardDeno */ = {
+		B67F1EFD24A22E2D006FCE51 /* KeyboardDemo */ = {
 			isa = PBXGroup;
 			children = (
 				B67F1EFE24A22E2D006FCE51 /* AppDelegate.swift */,
@@ -67,7 +67,7 @@
 				B67F1F0924A22E2E006FCE51 /* LaunchScreen.storyboard */,
 				B67F1F0C24A22E2E006FCE51 /* Info.plist */,
 			);
-			path = KeyboardDeno;
+			path = KeyboardDemo;
 			sourceTree = "<group>";
 		};
 		B67F1F1224A23386006FCE51 /* KeyboardHelper */ = {
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B67F1EFA24A22E2D006FCE51 /* KeyboardDeno */ = {
+		B67F1EFA24A22E2D006FCE51 /* KeyboardDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B67F1F0F24A22E2E006FCE51 /* Build configuration list for PBXNativeTarget "KeyboardDeno" */;
+			buildConfigurationList = B67F1F0F24A22E2E006FCE51 /* Build configuration list for PBXNativeTarget "KeyboardDemo" */;
 			buildPhases = (
 				B67F1EF724A22E2D006FCE51 /* Sources */,
 				B67F1EF824A22E2D006FCE51 /* Frameworks */,
@@ -93,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = KeyboardDeno;
+			name = KeyboardDemo;
 			productName = KeyboardDeno;
-			productReference = B67F1EFB24A22E2D006FCE51 /* KeyboardDeno.app */;
+			productReference = B67F1EFB24A22E2D006FCE51 /* KeyboardDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B67F1EF624A22E2D006FCE51 /* Build configuration list for PBXProject "KeyboardDeno" */;
+			buildConfigurationList = B67F1EF624A22E2D006FCE51 /* Build configuration list for PBXProject "KeyboardDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B67F1EFA24A22E2D006FCE51 /* KeyboardDeno */,
+				B67F1EFA24A22E2D006FCE51 /* KeyboardDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -331,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B67F1EF624A22E2D006FCE51 /* Build configuration list for PBXProject "KeyboardDeno" */ = {
+		B67F1EF624A22E2D006FCE51 /* Build configuration list for PBXProject "KeyboardDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B67F1F0D24A22E2E006FCE51 /* Debug */,
@@ -340,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B67F1F0F24A22E2E006FCE51 /* Build configuration list for PBXNativeTarget "KeyboardDeno" */ = {
+		B67F1F0F24A22E2E006FCE51 /* Build configuration list for PBXNativeTarget "KeyboardDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B67F1F1024A22E2E006FCE51 /* Debug */,
