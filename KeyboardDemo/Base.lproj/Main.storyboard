@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KeyboardDeno" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KeyboardDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,12 +82,19 @@
                                             <action selector="pressedAddKeyboardHelper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Frx-br-Ip1"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YX-ww-p1t">
+                                        <rect key="frame" x="54" y="724" width="136" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="cY3-mh-h3F"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="WPT-h3-RMw" firstAttribute="top" secondItem="rN3-j1-EOg" secondAttribute="bottom" constant="50" id="1aI-4u-gdy"/>
                                     <constraint firstAttribute="trailing" secondItem="rN3-j1-EOg" secondAttribute="trailing" constant="224" id="1o0-gr-KWO"/>
-                                    <constraint firstAttribute="bottom" secondItem="d6a-Z9-Eb1" secondAttribute="bottom" constant="147" id="2c8-9L-r7k"/>
                                     <constraint firstItem="DeT-Ub-aiP" firstAttribute="top" secondItem="uac-sM-q6s" secondAttribute="top" constant="49" id="6Yg-fF-ota"/>
                                     <constraint firstItem="d6a-Z9-Eb1" firstAttribute="top" secondItem="0Qh-lm-g19" secondAttribute="bottom" constant="38" id="6cl-fW-knb"/>
                                     <constraint firstAttribute="trailing" secondItem="liQ-4U-Mp3" secondAttribute="trailing" constant="200" id="Ecn-4m-zR9"/>
@@ -102,11 +109,15 @@
                                     <constraint firstItem="0Qh-lm-g19" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="Pl4-Wg-OoC"/>
                                     <constraint firstAttribute="trailing" secondItem="DeT-Ub-aiP" secondAttribute="trailing" constant="224" id="RPf-Nd-zKn"/>
                                     <constraint firstAttribute="trailing" secondItem="0Qh-lm-g19" secondAttribute="trailing" constant="224" id="SzH-qC-WG7"/>
+                                    <constraint firstAttribute="bottom" secondItem="3YX-ww-p1t" secondAttribute="bottom" constant="60" id="T0S-Ub-Gl3"/>
                                     <constraint firstItem="rN3-j1-EOg" firstAttribute="top" secondItem="liQ-4U-Mp3" secondAttribute="bottom" constant="50" id="TSv-Gb-Pm8"/>
                                     <constraint firstItem="d4G-7g-onM" firstAttribute="leading" secondItem="DeT-Ub-aiP" secondAttribute="trailing" constant="47" id="YLd-do-GCw"/>
+                                    <constraint firstAttribute="trailing" secondItem="3YX-ww-p1t" secondAttribute="trailing" constant="224" id="azc-jk-sLr"/>
                                     <constraint firstItem="liQ-4U-Mp3" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="ddE-q1-pGK"/>
                                     <constraint firstItem="rN3-j1-EOg" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="fMe-gt-XbK"/>
+                                    <constraint firstItem="3YX-ww-p1t" firstAttribute="top" secondItem="d6a-Z9-Eb1" secondAttribute="bottom" constant="53" id="kqe-hX-2bn"/>
                                     <constraint firstItem="0Qh-lm-g19" firstAttribute="top" secondItem="WPT-h3-RMw" secondAttribute="bottom" constant="59" id="lFU-gM-57g"/>
+                                    <constraint firstItem="3YX-ww-p1t" firstAttribute="leading" secondItem="uac-sM-q6s" secondAttribute="leading" constant="54" id="r4s-bw-uEe"/>
                                     <constraint firstAttribute="trailing" secondItem="WPT-h3-RMw" secondAttribute="trailing" constant="263" id="sIJ-JV-EKY"/>
                                     <constraint firstAttribute="trailing" secondItem="d4G-7g-onM" secondAttribute="trailing" constant="9" id="zdO-za-vDw"/>
                                     <constraint firstItem="liQ-4U-Mp3" firstAttribute="top" secondItem="OWd-V7-Zsj" secondAttribute="bottom" constant="90" id="zrV-i7-EDZ"/>

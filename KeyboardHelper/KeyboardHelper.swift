@@ -21,6 +21,10 @@ class KeyboardHelper: NSObject
             guard contentView != nil else {return}
                      
             scrollView.backgroundColor = debugMode ? .red : .none
+            scrollView.showsVerticalScrollIndicator = false
+            scrollView.showsHorizontalScrollIndicator = false
+            scrollView.isScrollEnabled = false
+            
             scrollView.translatesAutoresizingMaskIntoConstraints = false
             
             if let superview = self.contentView!.superview
