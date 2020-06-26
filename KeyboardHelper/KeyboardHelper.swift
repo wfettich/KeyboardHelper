@@ -24,6 +24,8 @@ class KeyboardHelper: NSObject
             scrollView.showsVerticalScrollIndicator = false
             scrollView.showsHorizontalScrollIndicator = false
             scrollView.isScrollEnabled = false
+            scrollView.accessibilityIdentifier = debugMode ? "iKHScrollView" : nil
+            scrollView.accessibilityLabel = debugMode ? "iKHScrollView" : nil
             
             scrollView.translatesAutoresizingMaskIntoConstraints = false
             
