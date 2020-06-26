@@ -18,11 +18,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        addKeyboardHandler()
     }
     
-    func addKeyboardHandler()
+    func addKeyboardHelper()
     {
         keyboardHelper.contentView = content        
                 
@@ -46,9 +44,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func pressedAddKeyboardHelper(_ sender: UIButton)
+    {
+        addKeyboardHelper()
+        sender.removeFromSuperview()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        textField.resignFirstResponder()
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1)
+        {
+            nextField.becomeFirstResponder()
+            keyboardHelper.scrollIfNeeded()
+        }
+        else
+        {
+            textField.resignFirstResponder()
+        }
+        
+        return true
     }
 }
 

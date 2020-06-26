@@ -12,16 +12,38 @@ class KeyboardHelper: NSObject
 {
     let scrollView = UIScrollView()
     
+    var debugMode = false
+    
     var contentView:UIView?
     {
         didSet
         {
             guard contentView != nil else {return}
-            scrollView.backgroundColor = .red
+                     
+            scrollView.backgroundColor = debugMode ? .red : .none
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
             
-            contentView!.removeOuterConstraints()
-            contentView!.superview?.set(contentView:scrollView)
-            
+            if let superview = self.contentView!.superview
+            {
+                superview.addSubview(scrollView)
+                
+                // replace contentView with scrollView in outer constraints
+                for c in superview.constraints {
+                    
+                    if let first = c.firstItem as? UIView, first == contentView {
+                        let newConstraint = NSLayoutConstraint(item: scrollView, attribute: c.firstAttribute, relatedBy: c.relation, toItem: c.secondItem, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
+                        superview.removeConstraint(c)
+                        superview.addConstraint(newConstraint)
+                    }
+                    
+                    if let second = c.secondItem as? UIView, second == contentView {
+                        let newConstraint = NSLayoutConstraint(item: c.firstItem!, attribute: c.firstAttribute, relatedBy: c.relation, toItem: scrollView, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
+                        superview.removeConstraint(c)
+                        superview.addConstraint(newConstraint)
+                    }
+                }
+            }
+                                    
             scrollView.set(content: contentView!)
         }
     }
@@ -44,7 +66,23 @@ class KeyboardHelper: NSObject
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasResized(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
+    }
+    
+    func scrollIfNeeded(animated: Bool = true)
+    {
+        if let firstResponder = contentView?.window?.firstResponder
+        {
+            // do something with `firstResponder`
+            
+            if let absRect = firstResponder.superview?.convert(firstResponder.frame, to:nil),
+            absRect.maxY > keyboardRect.origin.y
+            {
+                movedOffset = keyboardRect.size.height
+                let y = scrollView.contentOffset.y + movedOffset
+                let x = scrollView.contentOffset.x
+                scrollView.setContentOffset(CGPoint(x: x,y: y), animated: animated)
+            }
+        }
     }
     
     func deregisterFromKeyboardNotifications(){
@@ -58,30 +96,21 @@ class KeyboardHelper: NSObject
     // MARK:- Keyboard hide/show methods
     var isKeyboardShown = false
     
+    var keyboardRect = CGRect.zero
+    
     var movedOffset:CGFloat = 0
     
     @objc func keyboardWillShow(_ notification: Notification)
     {
         if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         {
-            
             if(false == isKeyboardShown)
             {
                 isKeyboardShown = true
+                
+                self.keyboardRect = keyboardRect
                                 
-                if let firstResponder = contentView?.window?.firstResponder
-                {
-                    // do something with `firstResponder`
-                    
-                    if let absRect = firstResponder.superview?.convert(firstResponder.frame, to:nil),
-                    absRect.maxY > keyboardRect.origin.y
-                    {
-                        movedOffset = keyboardRect.size.height
-                        let y = scrollView.contentOffset.y + movedOffset
-                        let x = scrollView.contentOffset.x
-                        scrollView.contentOffset = CGPoint(x: x,y: y)
-                    }
-                }
+                scrollIfNeeded()
                 
                 onKeyboardWillBeShown?(keyboardRect)
             }
@@ -105,8 +134,9 @@ class KeyboardHelper: NSObject
             
             if(isKeyboardShown)
             {
-                onKeyboardWillBeResized?(keyboardRect)
+                self.keyboardRect = keyboardRect
                 
+                onKeyboardWillBeResized?(keyboardRect)
             }
         }
     }
@@ -124,6 +154,7 @@ class KeyboardHelper: NSObject
                 scrollView.contentOffset = CGPoint(x: x,y: y)
                 
                 isKeyboardShown = false
+                self.keyboardRect = .zero
                 movedOffset = 0
             }
         }
@@ -168,6 +199,8 @@ extension UIScrollView
         content.translatesAutoresizingMaskIntoConstraints = false
                     
         addSubview(content)
+        
+        contentSize = content.frame.size
         
         NSLayoutConstraint.activate([
         frameLayoutGuide.widthAnchor.constraint(equalTo: content.widthAnchor),
