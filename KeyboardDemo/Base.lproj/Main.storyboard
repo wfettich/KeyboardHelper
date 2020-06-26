@@ -101,9 +101,11 @@
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="contentView"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="rootView"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uac-sM-q6s" secondAttribute="bottom" id="1rY-gZ-J9E"/>
                             <constraint firstItem="uac-sM-q6s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ef1-we-XR1"/>

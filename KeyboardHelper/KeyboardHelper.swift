@@ -15,43 +15,7 @@ class KeyboardHelper: NSObject
     var debugMode = false
     
     var contentView:UIView?
-    {
-        didSet
-        {
-            guard contentView != nil else {return}
-                     
-            scrollView.backgroundColor = debugMode ? .red : .none
-            scrollView.showsVerticalScrollIndicator = false
-            scrollView.showsHorizontalScrollIndicator = false
-            scrollView.isScrollEnabled = false
-            
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            
-            if let superview = self.contentView!.superview
-            {
-                superview.addSubview(scrollView)
-                
-                // replace contentView with scrollView in outer constraints
-                for c in superview.constraints {
-                    
-                    if let first = c.firstItem as? UIView, first == contentView {
-                        let newConstraint = NSLayoutConstraint(item: scrollView, attribute: c.firstAttribute, relatedBy: c.relation, toItem: c.secondItem, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
-                        superview.removeConstraint(c)
-                        superview.addConstraint(newConstraint)
-                    }
-                    
-                    if let second = c.secondItem as? UIView, second == contentView {
-                        let newConstraint = NSLayoutConstraint(item: c.firstItem!, attribute: c.firstAttribute, relatedBy: c.relation, toItem: scrollView, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
-                        superview.removeConstraint(c)
-                        superview.addConstraint(newConstraint)
-                    }
-                }
-            }
-                                    
-            scrollView.set(content: contentView!)
-        }
-    }
-        
+    
     var onKeyboardWillBeShown:((CGRect)->())?
     
     var onKeyboardDidShow:((CGRect)->())?
@@ -59,6 +23,49 @@ class KeyboardHelper: NSObject
     var onKeyboardWillBeResized:((CGRect)->())?
     
     var onKeyboardWillBeHidden:((CGRect)->())?
+    
+    override init() {
+        super.init()
+        registerForKeyboardNotifications()
+    }
+    
+    func addTo(view contentView:UIView)
+    {
+        scrollView.backgroundColor = debugMode ? .red : .none
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.isScrollEnabled = false
+        scrollView.accessibilityIdentifier = "KHScrollView"
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let superview = self.contentView!.superview
+        {
+            superview.addSubview(scrollView)
+            
+            // replace contentView with scrollView in outer constraints
+            for c in superview.constraints {
+                
+                if let first = c.firstItem as? UIView, first == contentView {
+                    let newConstraint = NSLayoutConstraint(item: scrollView, attribute: c.firstAttribute, relatedBy: c.relation, toItem: c.secondItem, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
+                    superview.removeConstraint(c)
+                    superview.addConstraint(newConstraint)
+                }
+                
+                if let second = c.secondItem as? UIView, second == contentView {
+                    let newConstraint = NSLayoutConstraint(item: c.firstItem!, attribute: c.firstAttribute, relatedBy: c.relation, toItem: scrollView, attribute: c.secondAttribute, multiplier: c.multiplier, constant: c.constant)
+                    superview.removeConstraint(c)
+                    superview.addConstraint(newConstraint)
+                }
+            }
+        }
+                                
+        scrollView.set(content: contentView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.frameLayoutGuide.heightAnchor.constraint(equalTo: contentView.heightAnchor)
+        ])
+    }
     
     func registerForKeyboardNotifications()
     {
@@ -95,6 +102,11 @@ class KeyboardHelper: NSObject
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    deinit
+    {
+        deregisterFromKeyboardNotifications()
     }
     
     // MARK:- Keyboard hide/show methods
@@ -183,7 +195,7 @@ extension UIView
         
         let containerViewEndConstraint = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal
             , toItem: contentView.superview, attribute: .trailing, multiplier: 1, constant: 0)
-                
+                        
         NSLayoutConstraint.activate([
             containerViewLeadingConstraint
             ,containerViewTopConstraint
@@ -200,6 +212,7 @@ extension UIScrollView
 {
     func set(content:UIView)
     {
+        // make it work for content views that don't use autolayout too.
 //        content.translatesAutoresizingMaskIntoConstraints = false
                     
         addSubview(content)

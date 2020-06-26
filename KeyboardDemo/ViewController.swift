@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func addKeyboardHelper()
     {
-        keyboardHelper.debugMode = true
+        keyboardHelper.debugMode = false
         keyboardHelper.contentView = content        
                 
         keyboardHelper.registerForKeyboardNotifications()
