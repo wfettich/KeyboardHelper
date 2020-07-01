@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        addKeyboardHelper()
     }
     
     func addKeyboardHelper()
@@ -45,8 +47,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressedAddKeyboardHelper(_ sender: UIButton)
     {
-        addKeyboardHelper()
-        sender.removeFromSuperview()
+//        addKeyboardHelper()
+//        sender.removeFromSuperview()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

@@ -74,7 +74,7 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="dnE-vr-2O0"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4G-7g-onM">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4G-7g-onM">
                                         <rect key="frame" x="237" y="47" width="168" height="34"/>
                                         <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Add KeyboardHelper"/>
