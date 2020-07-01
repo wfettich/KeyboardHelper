@@ -8,7 +8,7 @@ There are many solutions to the annoying problem of having the virtual keyboard 
 BUT they are not updated for use with or without Autolayout or other issues. 
 This solution is fairly simple and adds a UIScrollView between your UIView and it's superview automatically. Sometimes simple is best. It works for views that use Autolayout constraints or just plain resizing masks. 
 
-<img src="KeyboardDemo.gif" width="100" height="200" />
+<img src="KeyboardDemo.gif" width="150" height="300" />
 
 # How to use:
 
