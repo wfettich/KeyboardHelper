@@ -12,6 +12,8 @@ class KeyboardHelper: NSObject
 {
     let scrollView = UIScrollView()
     
+    let tapRecognizer = UITapGestureRecognizer()
+    
     var debugMode = false
     
     var contentView:UIView?
@@ -66,6 +68,18 @@ class KeyboardHelper: NSObject
         NSLayoutConstraint.activate([
             scrollView.frameLayoutGuide.heightAnchor.constraint(equalTo: contentView.heightAnchor)
         ])
+        
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(onTap))
+        scrollView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func onTap()
+    {
+        if let firstResponder = contentView?.window?.firstResponder
+        {
+            firstResponder.resignFirstResponder()
+        }
     }
     
     func registerForKeyboardNotifications()
