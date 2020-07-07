@@ -16,7 +16,15 @@ class KeyboardHelper: NSObject
     
     var debugMode = false
     
-    var contentView:UIView?
+    var dismissOnTap = true
+    {
+        didSet
+        {
+            tapRecognizer.isEnabled = dismissOnTap
+        }
+    }
+    
+    private var contentView:UIView?
     
     var onKeyboardWillBeShown:((CGRect)->())?
     
@@ -74,7 +82,7 @@ class KeyboardHelper: NSObject
         scrollView.addGestureRecognizer(tapRecognizer)
     }
     
-    @objc func onTap()
+    @objc private func onTap()
     {
         if let firstResponder = contentView?.window?.firstResponder
         {
@@ -82,7 +90,7 @@ class KeyboardHelper: NSObject
         }
     }
     
-    func registerForKeyboardNotifications()
+    private func registerForKeyboardNotifications()
     {
         //Adding notifies on keyboard appearing
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -98,8 +106,6 @@ class KeyboardHelper: NSObject
     {
         if let firstResponder = contentView?.window?.firstResponder
         {
-            // do something with `firstResponder`
-            
             if let absRect = firstResponder.superview?.convert(firstResponder.frame, to:nil),
             absRect.maxY > keyboardRect.origin.y
             {
@@ -111,7 +117,7 @@ class KeyboardHelper: NSObject
         }
     }
     
-    func deregisterFromKeyboardNotifications(){
+    private func deregisterFromKeyboardNotifications(){
         //Removing notifies on keyboard appearing
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
@@ -129,9 +135,9 @@ class KeyboardHelper: NSObject
     
     var keyboardRect = CGRect.zero
     
-    var movedOffset:CGFloat = 0
+    private var movedOffset:CGFloat = 0
     
-    @objc func keyboardWillShow(_ notification: Notification)
+    @objc private func keyboardWillShow(_ notification: Notification)
     {
         if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         {
@@ -148,7 +154,7 @@ class KeyboardHelper: NSObject
         }
     }
     
-    @objc func keyboardDidShow(_ notification: Notification)
+    @objc private func keyboardDidShow(_ notification: Notification)
     {
         if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
