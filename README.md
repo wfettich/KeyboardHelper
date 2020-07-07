@@ -28,8 +28,7 @@ onKeyboardWillBeHidden
 ```
 
 See the demo project KeyboardDemo for an example. 
-
-![Appetize](https://appetize.io/embed/jjqk9katrtkb2t14nept2gu090?device=iphone6s&scale=75&orientation=portrait&osVersion=13.3)
+or try it on [Appetize](https://appetize.io/embed/jjqk9katrtkb2t14nept2gu090?device=iphone6s&scale=75&orientation=portrait&osVersion=13.3")
 
 # How it works:
 
