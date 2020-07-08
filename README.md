@@ -36,7 +36,7 @@ When you attach it to a view it adds a UIScrollView as it's superview that uses 
 
 It also adds a gesture recognizer that resigns the current first responder when tapped. 
 
-# Contact the autor:
+# Contact the author:
 
 For any bugs, changes or requests please contact me by email: wf@wfff.info or check out my site www.wfff.info
 
